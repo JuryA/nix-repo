@@ -1,12 +1,14 @@
-{ sources ? import ./sources.nix }: # import the sources
-with
-{
-  overlay = _:
-    {
-      niv = import sources.niv { }; # use the sources :)
-    };
-};
-import sources.nixpkgs                  # and use them again!
-{ overlays = [ overlay ]; config = { }; }
+# { sources ? import ./nix/sources.nix }: # import the sources
+# with
+# {
+#   overlay = _: pkgs:
+#     {
+#       niv = import sources.niv { }; # use the sources :)
+#     };
+# };
+# { pkgs ? import sources.nixpkgs }:
+# with
+# { overlays = [ overlay ]; config = { }; }
+# (import ./nix { }).ci;
 
-  (import ./nix { }).ci
+(import ./nix { }).ci
